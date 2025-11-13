@@ -1,16 +1,35 @@
-# React + Vite
+# Frontend React – Gestionnaire de Notes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ce dossier contient l'application cliente développée avec **React 19**, **Vite 7** et **TailwindCSS**.  
+Elle communique avec l'API Spring Boot (port `8080`) pour l'authentification et la gestion des notes.
 
-Currently, two official plugins are available:
+## Installation
+```bash
+npm install
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Lancement en développement
+```bash
+npm run dev
+```
+L'application est disponible sur `http://localhost:5173`.  
+Veillez à démarrer le backend pour que les appels API fonctionnent.
 
-## React Compiler
+## Build de production
+```bash
+npm run build
+```
+Le dossier `dist/` contient les fichiers prêts à être servis.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Structure principale
+- `src/pages/Login.jsx` : inscription / connexion (stockage local de l'utilisateur).
+- `src/pages/Dash.jsx` : tableau de bord avec chargement des notes.
+- `src/pages/Notes.jsx` : affichage, ajout, édition et suppression des notes (modales Tailwind).
+- `src/pages/Profile.jsx` : gestion du profil utilisateur (PUT `/api/auth/{id}`).
+- `src/pages/Sidebar.jsx` : navigation latérale.
 
-## Expanding the ESLint configuration
+## Personnalisation
+- Modifier les couleurs et polices (classes Tailwind) dans les fichiers `*.jsx`.
+- Mettre à jour les URLs d'API si le backend est déployé ailleurs qu'en local.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> 📘 Pour une vue d'ensemble du projet (backend + frontend), consultez le `README.md` à la racine du dépôt.
